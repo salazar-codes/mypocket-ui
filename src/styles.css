@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+/* Fuentes */
+@font-face {
+    font-family: varela-round-regular;
+    src: url(assets/fonts/VarelaRound-Regular.ttf);
+}
+
+*{
+    font-family: varela-round-regular;
+}
+
+body{
+    margin: 0;
+}
+
+
+@media (min-width: 576px){
+    .jumbotron {
+        padding: 2rem 2rem !important;
+    }
+}
