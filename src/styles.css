@@ -29,6 +29,10 @@ body{
     font-size: .8rem;
 }
 
+.b-rad{
+    border-radius: 12px !important;
+}
+
 @media (min-width: 576px){
     .jumbotron {
         padding: 2rem 2rem !important;
@@ -53,6 +57,7 @@ body{
     background: #5c14ba;
     color: #ffffff;
     border-radius: 20px;
+    padding: 1rem !important;
 }
 
 .card-mov-body{
@@ -70,6 +75,9 @@ body{
     border-left: solid 5px #0DC3A4;
 }
 
+.cuenta-icon{
+    width: 1.5rem;
+}
 .mov-icon{
     width: 3rem;
 }

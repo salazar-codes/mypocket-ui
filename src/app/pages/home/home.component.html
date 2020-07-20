@@ -1,7 +1,7 @@
 <div class="card-deck row">
 
-    <div class="col-xs-12 col-sm-12 col-lg-6">
-        <div class="card mr-0 ml-0 mb-3">
+    <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-5">
+        <div class="card mr-0 ml-0 mb-3 b-rad">
             <!-- CUENTAS -->
             <div class="card-body">
                 <div class="card border-0">
@@ -9,20 +9,20 @@
                         <h3><b>MIS CUENTAS</b></h3>
                     </div>
                     <div class="card-body card-cuenta-body">
+                        <h6>EFECTIVO</h6>
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4>EFECTIVO</h4>
-                                <h4 class="mb-0">S/ 1200.00</h4>
+                                <h6 class="mb-0">S/ 1200.00</h6>
                             </div>
                             <div class="d-flex">
                                 <a class="align-self-center" [routerLink]="" (click)="test(1)">
-                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/plus.svg" alt="">
+                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/plus.svg" alt="">
                                 </a>
                                 <a class="align-self-center" [routerLink]="" (click)="test(2)">
-                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/minus.svg" alt="">
+                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/minus.svg" alt="">
                                 </a>
                                 <a class="align-self-center" [routerLink]="" (click)="test(3)">
-                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/graph.svg" alt="">
+                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/layers.svg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -34,8 +34,8 @@
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-lg-6">
-        <div class="card mb-4 card mr-0 ml-0">
+    <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-7">
+        <div class="card mb-4 card mr-0 ml-0 b-rad">
 
             <div class="card-body">
                 <div class="card border-0">
@@ -59,8 +59,8 @@
                                 <div class="align-self-center mr-3">
                                     <span class="badge badge-secondary p-2">EFECTIVO</span>
                                 </div>
-                                <div class="align-self-end">
-                                    <h5><span class="lbl-gasto">-</span> S/ 10.00</h5>
+                                <div class="align-self-center">
+                                    <p class="mb-0"><span class="lbl-gasto">-</span> S/ 10.00</p>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +82,8 @@
                                 <div class="align-self-center mr-3">
                                     <span class="badge badge-secondary p-2">SCOTIABANK</span>
                                 </div>
-                                <div class="align-self-end">
-                                    <h5><span class="lbl-ingreso">+</span> S/ 1000.00</h5>
+                                <div class="align-self-center">
+                                    <p class="mb-0"><span class="lbl-ingreso">+</span> S/ 1000.00</p>
                                 </div>
                             </div>
                         </div>
