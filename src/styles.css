@@ -54,10 +54,17 @@ body{
 }
 
 .card-cuenta-body{
-    background: #5c14ba;
+    /* background: #5c14ba; */
     color: #ffffff;
     border-radius: 20px;
     padding: 1rem !important;
+}
+
+.bg-purple{
+    background: #5c14ba;
+}
+.bg-cian{
+    background: #1494ba;
 }
 
 .card-mov-body{
@@ -79,7 +86,7 @@ body{
     width: 1.5rem;
 }
 .mov-icon{
-    width: 3rem;
+    width: 2.2rem;
 }
 .lbl-gasto{
     color: #FF6837;
