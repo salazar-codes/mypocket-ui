@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-/* Fuentes */
-@font-face {
+:root {
+
+    --titles-color: #114B5F;
+    --footer-color: #20363E;
+
+    --purple: #5c14ba;
+    --cian: #1494ba;
+    --orange: #eaa424;
+    --green: #94b52f;
+
+
+    --orange-2: #e07f00;
+    --gray-80: #717171;
+    --gray-50: #a0a0a0;
+    --gray-20: #ced4da;
+}
+
+/* Fuentes */@font-face {
     font-family: varela-round-regular;
     src: url(assets/fonts/VarelaRound-Regular.ttf);
 }
@@ -61,16 +77,16 @@ body{
 }
 
 .bg-purple{
-    background: #5c14ba;
+    background: var(--purple);
 }
 .bg-cian{
-    background: #1494ba;
+    background: var(--cian);
 }
 .bg-orange{
-    background: #eaa424;
+    background: var(--orange)
 }
 .bg-green{
-    background: #94b52f;
+    background: var(--green)
 }
 
 .card-mov-body{
