@@ -1,63 +1,98 @@
 <div class="card-deck row">
 
-    <div class="col-xs-12 col-sm-6">
-        <!-- Card -->
-        <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-                <!-- <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
-                    alt="Card image cap"> -->
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-
-            <!--Card content-->
+    <div class="col-xs-12 col-sm-12 col-lg-6">
+        <div class="card mr-0 ml-0 mb-3">
+            <!-- CUENTAS -->
             <div class="card-body">
+                <div class="card border-0">
+                    <div class="card-title">
+                        <h3><b>MIS CUENTAS</b></h3>
+                    </div>
+                    <div class="card-body card-cuenta-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4>EFECTIVO</h4>
+                                <h4 class="mb-0">S/ 1200.00</h4>
+                            </div>
+                            <div class="d-flex">
+                                <a class="align-self-center" [routerLink]="" (click)="test(1)">
+                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/plus.svg" alt="">
+                                </a>
+                                <a class="align-self-center" [routerLink]="" (click)="test(2)">
+                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/minus.svg" alt="">
+                                </a>
+                                <a class="align-self-center" [routerLink]="" (click)="test(3)">
+                                    <img class="img-fluid mov-icon ml-2 mr-2" src="../../../assets/icons/graph.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
 
-                <!--Title-->
-                <h4 class="card-title">MIS FONDOS</h4>
-                <!--Text-->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+                    </div>
+                </div>
             </div>
 
         </div>
-        <!-- Card -->
     </div>
 
-    <div class="col-xs-12 col-sm-6">
-        <!-- Card -->
-        <div class="card mb-4">
+    <div class="col-xs-12 col-sm-12 col-lg-6">
+        <div class="card mb-4 card mr-0 ml-0">
 
-            <!--Card image-->
-            <div class="view overlay">
-                <!-- <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg"
-                    alt="Card image cap"> -->
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-
-            <!--Card content-->
             <div class="card-body">
+                <div class="card border-0">
+                    <div class="card-title">
+                        <h3><b>ÚLTIMOS MOVIMIENTOS</b></h3>
+                    </div>
+                    <!-- MOVIMIENTOS -->
 
-                <!--Title-->
-                <h4 class="card-title">ÚLTIMOS MOVIMIENTOS</h4>
-                <!--Text-->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    <div class="card-body card-mov-body border-gasto">
+                        <div class="row d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div class="mr-3">
+                                    <img class="img-fluid mov-icon" src="../../../assets/icons/phone.svg" alt="">
+                                </div>
+                                <div class="mr-3">
+                                    <p class="mb-0">Recarga del celular</p>
+                                    <p class="mb-0">08 Julio 2020</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="align-self-center mr-3">
+                                    <span class="badge badge-secondary p-2">EFECTIVO</span>
+                                </div>
+                                <div class="align-self-end">
+                                    <h5><span class="lbl-gasto">-</span> S/ 10.00</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="card-body card-mov-body border-ingreso">
+                        <div class="row d-flex justify-content-between">
+
+                            <div class="d-flex">
+                                <div class="mr-3">
+                                    <img class="img-fluid mov-icon" src="../../../assets/icons/phone.svg" alt="">
+                                </div>
+                                <div class="mr-3">
+                                    <p class="mb-0">Recarga del celular</p>
+                                    <p class="mb-0">08 Julio 2020</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="align-self-center mr-3">
+                                    <span class="badge badge-secondary p-2">SCOTIABANK</span>
+                                </div>
+                                <div class="align-self-end">
+                                    <h5><span class="lbl-ingreso">+</span> S/ 1000.00</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>
-        <!-- Card -->
     </div>
 
 </div>

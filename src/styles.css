@@ -9,13 +9,73 @@
     font-family: varela-round-regular;
 }
 
-body{
-    margin: 0;
+html {
+    height: 100%;
 }
 
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #F3F3F3 !important;
+}
+
+.footer-custom{
+    background-color: #20363E;
+    color: #ffffff;
+}
+
+.f-2{
+    font-size: .8rem;
+}
 
 @media (min-width: 576px){
     .jumbotron {
         padding: 2rem 2rem !important;
+        
     }
+
+    .card-deck {
+        margin: 0 !important;
+    }
+}
+
+.jumbotron{
+    background-color: #F3F3F3 !important;
+    color: #114B5F;
+}
+
+.card-title{
+    color: #114B5F;
+}
+
+.card-cuenta-body{
+    background: #5c14ba;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.card-mov-body{
+    background: #FCFCFC;
+    color: #9A9A9A;
+    border: solid 1px #D2D2D2;
+    border-radius: 5px;
+    padding: .5rem 2rem !important;
+}
+
+.border-gasto{
+    border-left: solid 5px #FF6837;
+}
+.border-ingreso{
+    border-left: solid 5px #0DC3A4;
+}
+
+.mov-icon{
+    width: 3rem;
+}
+.lbl-gasto{
+    color: #FF6837;
+}
+.lbl-ingreso{
+    color: #0DC3A4;
 }
