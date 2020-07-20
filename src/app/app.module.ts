@@ -8,11 +8,13 @@ import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NopagefoundComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -66,6 +66,12 @@ body{
 .bg-cian{
     background: #1494ba;
 }
+.bg-orange{
+    background: #eaa424;
+}
+.bg-green{
+    background: #94b52f;
+}
 
 .card-mov-body{
     background: #FCFCFC;
