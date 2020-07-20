@@ -9,12 +9,14 @@ import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NopagefoundComponent,
     NavbarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
