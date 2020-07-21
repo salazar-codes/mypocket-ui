@@ -9,8 +9,30 @@
                         <h3><b>MIS CUENTAS</b></h3>
                     </div>
 
+                    <div *ngFor="let cuenta of cuentas">
+                        <div class="card-body card-cuenta-body mb-2" [ngClass]="'bg-' + cuenta.color">
+                            <h6>{{ cuenta.nombre }}</h6>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="mb-0">S/ {{ cuenta.monto }}</h6>
+                                </div>
+                                <div class="d-flex">
+                                    <a class="align-self-center" [routerLink]='' (click)="test(1)">
+                                        <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/plus.svg" alt="">
+                                    </a>
+                                    <a class="align-self-center" [routerLink]="" (click)="test(2)">
+                                        <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/minus.svg" alt="">
+                                    </a>
+                                    <a class="align-self-center" [routerLink]='["/home/cuenta"]' (click)="test(3)">
+                                        <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/layers.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- CUENTAS --> 
-                    <div class="card-body card-cuenta-body bg-purple mb-2">
+                    <!-- <div class="card-body card-cuenta-body bg-purple mb-2">
                         <h6>EFECTIVO</h6>
                         <div class="d-flex justify-content-between">
                             <div>
@@ -28,67 +50,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="card-body card-cuenta-body bg-cian mb-2">
-                        <h6>SCOTIABANK</h6>
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="mb-0">S/ 1200.00</h6>
-                            </div>
-                            <div class="d-flex">
-                                <a class="align-self-center" [routerLink]="" (click)="test(1)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/plus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(2)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/minus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(3)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/layers.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body card-cuenta-body bg-orange mb-2">
-                        <h6>AHORROS (BCP)</h6>
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="mb-0">S/ 1200.00</h6>
-                            </div>
-                            <div class="d-flex">
-                                <a class="align-self-center" [routerLink]="" (click)="test(1)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/plus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(2)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/minus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(3)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/layers.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body card-cuenta-body bg-green mb-2">
-                        <h6>INTERBANK</h6>
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6 class="mb-0">S/ 1200.00</h6>
-                            </div>
-                            <div class="d-flex">
-                                <a class="align-self-center" [routerLink]="" (click)="test(1)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/plus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(2)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/minus.svg" alt="">
-                                </a>
-                                <a class="align-self-center" [routerLink]="" (click)="test(3)">
-                                    <img class="img-fluid cuenta-icon ml-1 mr-2" src="../../../assets/icons/layers.svg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

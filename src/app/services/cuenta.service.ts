@@ -17,7 +17,7 @@ export class CuentaService {
 
     return this.http.get(`${ base_url }/cuentas/usuario/${ id }`).pipe(
       tap( (resp:any) => {
-        console.log('resp',resp);
+        //console.log('resp',resp);
       }),
       //map( resp => true ),
       catchError( error => of(null))

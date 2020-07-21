@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { CuentaService } from '../../services/cuenta.service';
 
+import { Cuenta } from '../../models/cuenta.model';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,12 +11,17 @@ import { CuentaService } from '../../services/cuenta.service';
 })
 export class HomeComponent implements OnInit {
 
+  cuentas: Cuenta[];
+
   constructor( public cuentaService: CuentaService ) { }
 
   ngOnInit(): void {
     
     this.cuentaService.getCuentas(1).subscribe(
-      resp => console.log('ESTO LLEGA', resp)
+      resp => {
+        this.cuentas = resp;
+        console.log('CUENTAS', this.cuentas)
+      }
     );
 
   }
