@@ -13,9 +13,21 @@ export class CuentaService {
 
   constructor( private http: HttpClient ) { }
 
-  getCuentas(id: number){
+  getCuentasByUsuario(id: number){
 
     return this.http.get(`${ base_url }/cuentas/usuario/${ id }`).pipe(
+      tap( (resp:any) => {
+        //console.log('resp',resp);
+      }),
+      //map( resp => true ),
+      catchError( error => of(null))
+    );
+    
+  }
+
+  getCuentaById(id: number){
+    
+    return this.http.get(`${ base_url }/cuentas/${ id }`).pipe(
       tap( (resp:any) => {
         //console.log('resp',resp);
       }),

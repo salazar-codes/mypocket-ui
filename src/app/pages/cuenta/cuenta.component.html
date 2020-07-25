@@ -6,11 +6,11 @@
             <div class="card-body">
                 <div class="card border-0">
                     <div class="card-title mb-0">
-                        <h3><b>INTERBANK</b></h3>
-                        <p class="mb-0">CUENTA BANCARIA</p>
+                        <h3><b>{{ cuenta.nombre }}</b></h3>
+                        <p class="mb-0">{{ cuenta.tipoCuenta.nombre }}</p>
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h6 class="mb-0">S/ 1200.00</h6>
+                                <h6 class="mb-0">S/ {{ cuenta.monto }}</h6>
                             </div>
                             <div class="d-flex">
                                 <a class="align-self-center" [routerLink]='["/home"]'>Ver mis cuentas</a>
@@ -31,47 +31,30 @@
                         <h3><b>ÚLTIMOS MOVIMIENTOS</b></h3>
                     </div>
                     <!-- MOVIMIENTOS -->
-
-                    <div class="card-body card-mov-body border-gasto">
-                        <div class="row d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="mr-3 align-self-center">
-                                    <img class="img-fluid mov-icon" src="../../../assets/icons/phone.svg" alt="">
+                    <div *ngFor="let mov of movimientos">
+                        <div class="card-body card-mov-body" [ngClass]="mov.tipoMovimiento.ingreso ? 'border-ingreso' : 'border-gasto'" >
+                            <div class="row d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <div class="mr-3 align-self-center">
+                                        <img class="img-fluid mov-icon" [src]="'../../../assets/icons/' + mov.tipoMovimiento.icono + '.svg'" alt="">
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">{{ mov.titulo }}</p>
+                                        <p class="mb-0">{{ mov.createAt | date:'mediumDate' }}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="mb-0">Recarga del celular</p>
-                                    <p class="mb-0">08 Julio 2020</p>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="align-self-center mr-3">
-                                    <span class="badge badge-secondary p-1">EFECTIVO</span>
-                                </div>
-                                <div class="align-self-center">
-                                    <p class="mb-0"><span class="lbl-gasto">-</span> S/ 10.00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body card-mov-body border-ingreso">
-                        <div class="row d-flex justify-content-between">
-
-                            <div class="d-flex">
-                                <div class="mr-3 align-self-center">
-                                    <img class="img-fluid mov-icon" src="../../../assets/icons/phone.svg" alt="">
-                                </div>
-                                <div class="mr-3">
-                                    <p class="mb-0">Recarga del celular</p>
-                                    <p class="mb-0">08 Julio 2020</p>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="align-self-center mr-3">
-                                    <span class="badge badge-secondary p-1">SCOTIABANK</span>
-                                </div>
-                                <div class="align-self-center">
-                                    <p class="mb-0"><span class="lbl-ingreso">+</span> S/ 1000.00</p>
+                                <div class="d-flex">
+                                    <div class="align-self-center mr-3">
+                                        <span class="badge badge-secondary p-1">{{ mov.cuenta.nombre }}</span>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <p class="mb-0">
+                                            <span [ngClass]="mov.tipoMovimiento.ingreso ? 'lbl-ingreso' : 'lbl-gasto'">
+                                                <b>{{ mov.tipoMovimiento.ingreso ? '+' : '-' }}</b>
+                                            </span>
+                                            S/ {{ mov.monto }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

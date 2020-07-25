@@ -19,4 +19,19 @@ export class MovimientoService {
         (resp:any) => resp 
       )); 
   }
+
+  getMovimientosByUsuario(id: number){
+    return this.http.get(`${ base_url }/movimientos/usuario/${id}`).pipe(
+      map( 
+        (resp:any) => resp 
+      )); 
+  }
+
+  getMovimientosByCuenta(id: number){
+    return this.http.get(`${ base_url }/movimientos/cuenta/${id}`).pipe(
+      map( 
+        (resp:any) => resp 
+      )); 
+  }
+
 }
