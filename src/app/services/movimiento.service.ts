@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 const base_url = environment.base_url;
@@ -22,9 +22,18 @@ export class MovimientoService {
 
   getMovimientosByUsuario(id: number){
     return this.http.get(`${ base_url }/movimientos/usuario/${id}`).pipe(
+      tap(
+        (resp:any) => {
+          resp.sort((a, b) => (a.createAt > b.createAt ? -1 : 1))
+        }
+      ),
       map( 
         (resp:any) => resp 
       )); 
+      // map( (resp:any) => {
+      //   //console.log('resp',resp);
+      //   resp.sort((a, b) => (a.createAt > b.createAt ? -1 : 1));        
+      // }));
   }
 
   getMovimientosByCuenta(id: number){
