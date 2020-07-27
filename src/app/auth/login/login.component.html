@@ -23,8 +23,8 @@
                 <input type="password" formControlName="password" name="password" id="password" class="form-control"
                   placeholder="Contraseña" required>
               </div>
-              <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" [routerLink]="['/home']"
-                value="Login">
+              <!-- <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" [routerLink]="['/home']"
+                value="Login"> -->
 
               <button [disabled]="!formaLogin.valid" [ngClass]="formaLogin.valid ? 'btn-success' : 'btn-secondary'"
                 class="btn btn-block login-btn mb-4" type="submit">Ingresar</button>

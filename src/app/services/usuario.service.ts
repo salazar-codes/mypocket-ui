@@ -5,14 +5,14 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Usuario } from '../models/usuario.model';
 
-const base_url = environment.base_url;
+const base_url_auth = environment.base_url_auth;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  private url:string = base_url + 'auth/login';
+  private url:string = base_url_auth;
 
   usuario: Usuario;
   token: string;
@@ -21,14 +21,13 @@ export class UsuarioService {
                public router: Router) { }
 
   login( username: string, password: string ){
+    
+    let params = new URLSearchParams();
+    params.append('username', username);
+    params.append('password', password);    
+    params.append('grant_type','password');
 
-    let body:any = {};
-    body = {
-      username: username,
-      password: password
-    }
-
-    return this.http.post( this.url, body ).pipe(
+    return this.http.post( this.url, params.toString() ).pipe(
       map( 
         (resp: any) => {
           this.usuario = new Usuario(

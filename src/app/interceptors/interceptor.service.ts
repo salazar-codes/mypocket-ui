@@ -2,26 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { UsuarioService } from '../services/usuario.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor{
 
-  constructor() { }
+  constructor( public _usuarioService:UsuarioService) { }
 
   intercept( req: HttpRequest<any>, next: HttpHandler ):Observable<HttpEvent<any>>{
 
-    // console.log('int');
-
     let reqClone: any;
-    reqClone = this.getSecureHeaders(req);
+    //reqClone = this.getSecureHeaders(req);
     
-    // if( this._loginService.token ){
-    //   reqClone = this.getSecureHeaders(req);
-    // }else{
-    //   reqClone = req.clone();
-    // }
+    if( this._usuarioService.token ){
+      reqClone = this.getSecureHeaders(req);
+    }else{
+      reqClone = this.getSecureHeadersForLogin(req);
+      //reqClone = req.clone();
+    }
     
     return next.handle(reqClone).pipe(
       tap(
@@ -38,16 +38,23 @@ export class InterceptorService implements HttpInterceptor{
   }
 
   getSecureHeaders( req: HttpRequest<any> ){
-
     const headers = new HttpHeaders({
-      //'Authorization': 'Bearer ' + this._loginService.token
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGVsbGlkb3MiOiJTYWxhemFyIiwidXNlcl9uYW1lIjoianNhbGF6YXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTk1NjYyNjE2LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImp0aSI6IjlhZTJhZTM5LTZmNzktNDUzNC1hNWZhLTVkYjVhNzMzYzUwMSIsImVtYWlsIjoianNhbGF6YXJAZ21haWwuY29tIiwiY2xpZW50X2lkIjoiYW5ndWxhcmFwcCIsInVzZXJuYW1lIjoianNhbGF6YXIiLCJub21icmVzIjoiSmltbXkifQ.K-c_MJ7Kqwe3BR7lG5hQzkPiXxE2frLssnFECwaJOl8'
+      'Authorization': 'Bearer ' + this._usuarioService.token
     });
-
     return req.clone({
       headers
     });
+  }
 
+  getSecureHeadersForLogin( req: HttpRequest<any> ){
+    // SI NO EXISTE EL TOKEN
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + btoa('angularapp:12345')
+    });
+    return req.clone({
+      headers
+    });
   }
 
 }
