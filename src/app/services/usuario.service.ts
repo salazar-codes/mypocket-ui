@@ -18,7 +18,11 @@ export class UsuarioService {
   token: string;
 
   constructor( private http: HttpClient,
-               public router: Router) { }
+               public router: Router) {
+
+                this.cargarStorage();
+
+                }
 
   login( username: string, password: string ){
     
@@ -49,23 +53,28 @@ export class UsuarioService {
     );
 
   }
-
-  // setCurrentUser(user: Usuario){
-  //   this.usuario = user;
-  //   this.setStorageUser(user);
-  // }
   
   logout(){
 
-    //this.usuario = null;
-    this.usuario = null;
-    this.token = '';
-
-    localStorage.removeItem('usuario');
-    localStorage.removeItem('token');
+    this.removeValores()
+    this.removeStorage();
 
     //localStorage.clear(); //PARA BORRAR TODO DEL LS
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
+  }
+
+  cargarStorage(){
+    
+    if( localStorage.getItem('token') ){
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse( localStorage.getItem('usuario') );
+      // this.menu = JSON.parse( localStorage.getItem('menu') );
+    }else{
+      this.token = '';
+      this.usuario = null;
+      // this.menu = [];
+    }
+
   }
 
   setStorageToken(token:string){
@@ -73,6 +82,16 @@ export class UsuarioService {
   }
   setStorageUser(usuario:Usuario){
     localStorage.setItem('usuario', JSON.stringify( usuario ) );
+  }
+
+  removeStorage(){
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('token');
+  }
+
+  removeValores(){
+    this.usuario = null;
+    this.token = '';
   }
 
   getStorage(){

@@ -14,8 +14,7 @@ export class InterceptorService implements HttpInterceptor{
   intercept( req: HttpRequest<any>, next: HttpHandler ):Observable<HttpEvent<any>>{
 
     let reqClone: any;
-    //reqClone = this.getSecureHeaders(req);
-    
+
     if( this._usuarioService.token ){
       reqClone = this.getSecureHeaders(req);
     }else{
@@ -47,7 +46,6 @@ export class InterceptorService implements HttpInterceptor{
   }
 
   getSecureHeadersForLogin( req: HttpRequest<any> ){
-    // SI NO EXISTE EL TOKEN
     const headers = new HttpHeaders({
       'Content-Type':  'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + btoa('angularapp:12345')

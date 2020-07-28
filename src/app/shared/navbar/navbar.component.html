@@ -7,8 +7,8 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <label class="mr-4">Jimmy Salazar Ninaquispe</label>
-        <button class="btn btn-outline-danger my-2 my-sm-0" [routerLink]="['/auth/login']" >Cerrar sesión</button>
+        <label class="mr-4"> {{ _userService.usuario.nombres }} </label>
+        <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" >Cerrar sesión</button>
       </form>
     </div> 
   </nav>

@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this._userService.login(this.formaLogin.controls['username'].value, this.formaLogin.controls['password'].value).subscribe( 
         
         resp => {
-          if( resp.accessToken ){
+          if( resp.access_token ){
             // Obteniendo datos del usuario con el que se ingresó
             // this._userService.getCurrentUser().subscribe(
             //   resp=> {
