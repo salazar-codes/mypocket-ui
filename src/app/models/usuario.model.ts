@@ -8,5 +8,6 @@ export class Usuario{
         public enabled?:string,
         public createAt?:string,
         public password?:string,
+        public id?:number,
     ){}
 }

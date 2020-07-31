@@ -42,6 +42,7 @@ export class UsuarioService {
                           resp.enabled,
                           resp.createAt,
                           );
+          this.usuario.id = resp.user_id;
 
           this.token = resp.access_token;
           this.setStorageToken(this.token);

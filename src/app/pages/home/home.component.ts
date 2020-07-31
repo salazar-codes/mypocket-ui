@@ -6,6 +6,7 @@ import { MovimientoService } from '../../services/movimiento.service';
 
 import { Cuenta } from '../../models/cuenta.model';
 import { Movimiento } from '../../models/movimiento.model';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,12 @@ export class HomeComponent implements OnInit {
   constructor( public router: Router,
                private route: ActivatedRoute,
                public cuentaService: CuentaService,
-               public movimientoService: MovimientoService ) { }
+               public movimientoService: MovimientoService,
+               public usuarioService: UsuarioService, ) {
+
+                this.usuarioId = usuarioService.usuario.id;
+
+                }
 
   ngOnInit(): void {
     
