@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { CuentaService } from '../../services/cuenta.service';
 import { MovimientoService } from '../../services/movimiento.service';
@@ -18,13 +19,16 @@ export class HomeComponent implements OnInit {
   cuentas: Cuenta[];
   movimientos: Movimiento[];
 
-  usuarioId: number = 1;
+  usuarioId: number;
+  closeResult = '';
 
   constructor( public router: Router,
                private route: ActivatedRoute,
                public cuentaService: CuentaService,
                public movimientoService: MovimientoService,
-               public usuarioService: UsuarioService, ) {
+               public usuarioService: UsuarioService,
+               private modalService: NgbModal,
+                ) {
 
                 this.usuarioId = usuarioService.usuario.id;
 
@@ -62,6 +66,24 @@ export class HomeComponent implements OnInit {
 
   test(n: number){
     console.log('test', n);
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }
