@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ComponentsModule } from '../components/components.module';
 
 import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +27,8 @@ import { CuentaComponent } from './cuenta/cuenta.component';
     RouterModule,
     SharedModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }

@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // SERVICIOS
 import { InterceptorService } from './interceptors/interceptor.service';
@@ -18,7 +17,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NopagefoundComponent
+    NopagefoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,6 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     PagesModule,
     AuthModule,
     SharedModule,
-    NgbModule
   ],
   providers: [
     {

@@ -1,4 +1,4 @@
-<div class="card-deck row">
+<!-- <div class="card-deck row">
     <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-5">
         <div class="card mr-0 ml-0 mb-3 b-rad">
             <div class="card-body">
@@ -6,15 +6,35 @@
                     <div class="card-title">
                         <h3><b>Acceso rápido</b></h3>
                     </div>
-                    <button class="btn btn-danger w-100 b-rad" (click)="open(content)">Nueva transacción</button>
+                    <div class="card-body p-0 d-flex">
+                        <button class="btn btn-success w-100 b-rad mr-1" (click)="openModalFormMovimiento()">Nuevo ingreso</button>
+                        <button class="btn btn-danger w-100 b-rad ml-1" (click)="openModalFormMovimiento()">Nueva salida</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
 
 <div class="card-deck row">
     <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-5">
+
+        <div class="card mr-0 ml-0 mb-3 b-rad">
+            <div class="card-body">
+                <div class="card border-0">
+                    <div class="card-title">
+                        <h3><b>Nuevo movimiento</b></h3>
+                    </div>
+                    <div class="card-body p-0 d-flex">
+                        <button class="btn btn-outline-success w-100 b-rad mr-1" (click)="openModalFormMovimiento()">Ingreso</button>
+                        <button class="btn btn-outline-danger w-100 b-rad ml-1 mr-1" (click)="openModalFormMovimiento()">Gasto</button>
+                        <button class="btn btn-outline-info w-100 b-rad ml-1" (click)="openModalFormMovimiento()">Transferencia</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card mr-0 ml-0 mb-3 b-rad">
             <div class="card-body">
                 <div class="card border-0">
@@ -23,7 +43,8 @@
                     </div>
 
                     <div *ngFor="let cuenta of cuentas">
-                        <div class="card-body card-cuenta-body mb-2" [ngClass]="'bg-' + cuenta.color">
+                        <div class="card-body card-cuenta-body mb-2 bg-dark">
+                        <!-- <div class="card-body card-cuenta-body mb-2" [ngClass]="'bg-outline-' + cuenta.color"> -->
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <h5><b>{{ cuenta.nombre }}</b></h5>
@@ -96,11 +117,12 @@
                                         <span class="badge badge-secondary p-1">{{ mov.cuenta.nombre }}</span>
                                     </div>
                                     <div class="align-self-center">
-                                        <p class="mb-0">
-                                            <span [ngClass]="mov.tipoMovimiento.ingreso ? 'lbl-ingreso' : 'lbl-gasto'">
+                                        <p class="mb-0" [ngClass]="mov.tipoMovimiento.ingreso ? 'lbl-ingreso' : 'lbl-gasto'">
+                                            S/
+                                            <span>
                                                 <b>{{ mov.tipoMovimiento.ingreso ? '+' : '-' }}</b>
                                             </span>
-                                            S/ {{ mov.monto }}
+                                            {{ mov.monto }}
                                         </p>
                                     </div>
                                 </div>
@@ -138,31 +160,3 @@
     </div>
 
 </div>
-
-
-<!-- MODAL TEMPLATE PRUEBA -->
-
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="dateOfBirth">Date of birth</label>
-          <div class="input-group">
-            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>

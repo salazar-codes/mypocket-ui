@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">INGRESO</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="formaMovimiento" (ngSubmit)="guardarMovimiento()">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="toast-title">Cuenta</label>
+                <select id="cuenta" class="form-control" formControlName="cuenta" name="cuenta" required>
+                    <option value="null" disabled="true" hidden [selected]="true">Seleccione...</option>
+                    <option *ngFor="let c of cuentas" [ngValue]="c">{{ c.nombre }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="toast-title">Tipo de transacción </label>
+                <select id="cboTipoMovimientos" class="form-control" formControlName="tipoMovimiento"  name="cboTipoMovimientos" required>
+                    <option value="null" disabled="true" hidden [selected]="true">Seleccione...</option>
+                    <option *ngFor="let tm of tiposMovimiento" [ngValue]="tm">{{ tm.nombre }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="toast-title">Titulo </label>
+                <input type="text" placeholder="titulo" name="titulo" formControlName="titulo" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="toast-title">Descripcion </label>
+                <input type="text" placeholder="descripcion" name="descripcion" formControlName="descripcion" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="toast-title">Monto </label>
+                <input type="number" placeholder="monto" name="monto" class="form-control" formControlName="monto" required>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cerrar</button>
+    <button type="button" class="btn btn-success" (click)="guardarMovimiento()">Registrar</button>
+</div>

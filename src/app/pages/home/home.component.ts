@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { CuentaService } from '../../services/cuenta.service';
 import { MovimientoService } from '../../services/movimiento.service';
@@ -8,6 +9,7 @@ import { MovimientoService } from '../../services/movimiento.service';
 import { Cuenta } from '../../models/cuenta.model';
 import { Movimiento } from '../../models/movimiento.model';
 import { UsuarioService } from '../../services/usuario.service';
+import { FormMovimientoComponent } from '../../components/form-movimiento/form-movimiento.component';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +24,13 @@ export class HomeComponent implements OnInit {
   usuarioId: number;
   closeResult = '';
 
+  _modalOptionsNormal: NgbModalOptions = {
+    backdrop: 'static',
+    keyboard: false,
+    size: 'lg',
+    centered: false
+  };
+
   constructor( public router: Router,
                private route: ActivatedRoute,
                public cuentaService: CuentaService,
@@ -29,9 +38,7 @@ export class HomeComponent implements OnInit {
                public usuarioService: UsuarioService,
                private modalService: NgbModal,
                 ) {
-
                 this.usuarioId = usuarioService.usuario.id;
-
                 }
 
   ngOnInit(): void {
@@ -42,6 +49,10 @@ export class HomeComponent implements OnInit {
       }
     );
 
+    this.getMovimientos();
+  }
+
+  getMovimientos(){
     this.movimientoService.getMovimientosByUsuario(this.usuarioId).subscribe(
       resp => {
         this.movimientos = resp;
@@ -49,7 +60,7 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  // ENVIANDO FACTURAS AL FORMULARIO DE NUEVO PAGO
+  // VER EL DETALLE DE LA CUENTA
   verCuenta( cuenta:Cuenta ){
 
     let navigationExtras: NavigationExtras = {
@@ -68,22 +79,17 @@ export class HomeComponent implements OnInit {
     console.log('test', n);
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+  openModalFormMovimiento(){
+    const modalRef = this.modalService.open(FormMovimientoComponent, this._modalOptionsNormal);
+    modalRef.componentInstance.cuentas = this.cuentas;
+    modalRef.result.then((result) => {
+      console.log('respuesta',result);
+      this.getMovimientos();
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log('reason',reason);
     });
+    
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
 
 }

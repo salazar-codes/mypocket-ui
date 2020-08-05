@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Movimiento } from '../models/movimiento.model';
 
 const base_url = environment.base_url;
 
@@ -41,6 +42,15 @@ export class MovimientoService {
       map( 
         (resp:any) => resp 
       )); 
+  }
+
+  createMovimiento(movimiento: Movimiento){
+    return this.http.post(`${ base_url }/movimientos`, movimiento)
+            .pipe(
+              map ( (resp:any) => {
+                return resp;
+              })
+            );
   }
 
 }
