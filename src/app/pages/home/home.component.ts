@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
                public usuarioService: UsuarioService,
                private modalService: NgbModal,
                 ) {
-                this.usuarioId = usuarioService.usuario.id;
+                this.usuarioId = usuarioService.usuario?.id;
                 }
 
   ngOnInit(): void {
